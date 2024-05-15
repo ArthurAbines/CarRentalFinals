@@ -1,14 +1,24 @@
-JWTAuth Installation:
-install the tymon/jwt-auth package:
-composer require tymon/jwt-auth
-publish the JWTAuth configuration file:
-php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+# carental
 
-JWTAuth secret key:
-php artisan jwt:secret
+## Project setup
+```
+npm install
+```
 
-Fruitcake/Cors Installation:
-composer require fruitcake/laravel-cors
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-edited
-config/auth
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

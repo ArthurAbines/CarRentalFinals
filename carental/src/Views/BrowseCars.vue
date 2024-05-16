@@ -157,7 +157,7 @@
             <a class="nav-link" href="#">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" >Rentals</a>
+            <a class="nav-link" href="#" >Our Services</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" >Booking</a>
@@ -377,44 +377,58 @@
 
 <!--Footer-->
 <div class="footer-container" style="height: auto;">
-    <footer class="text-center mt-5 text-white bg-custom-footer">
-      <div class="container" >
-        <div class="row">
-          <div class="col-md-2">
-            <img src="../assets/rental logo.png" alt="Logo" style="max-width: 250px; margin-left: -15px;">
-            <div style=" margin-top:25px;">
-              <a href="#"><img src="../assets/Facebook-Logosu.png" alt="Facebook" style="max-width: 50px;"></a>
-              <a href="#"><img src="../assets/ig.png" alt="Twitter" style="max-width: 40px;"></a>
-              <a href="#"><img src="../assets/Telegram-logo.png" alt="Instagram" style="max-width: 50px;"></a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <h5 style="color: #49D06E; margin-top: 20px;">Contact Us</h5>
-            <p>Phone: 09206560145</p>
-            <p>Email: RentX@gmail.com</p>
-          </div>
-          <div class="col-md-3">
-            <h5 style="color: #49D06E; margin-top: 20px;">Quick Links</h5>
-            <ul class="list-unstyled">
-              <li><a href="#" style="color: white;">FAQ</a></li>
-              <li><a href="#" style="color: white;">Why Choose Us?</a></li>
-            </ul>
-          </div>
-          <div class="col-md-3">
-            <h5 style="color: #49D06E; margin-top: 20px;">Questions and Queries</h5>
-            <form>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter your query" style="height: 70px;">
-              </div>
-              <button type="submit" class="btn btn-custom btn-block" style="background-color: #3BA859;color: white; margin-top: 10px; width: 100%;">Submit</button>
-            </form>
-          </div>
-          <hr style="border-top: 2px solid black; margin-top: 20px;">
-          <p>&copy; 2024 RENT-X. All rights reserved.</p>
+<footer class="text-center mt-4 text-white" style="background-color: #4D5167;">
+    <div class="container" >
+      <div class="row">
+        
+        <!-- Logo -->
+        <div class="col-md-2">
+          <img src="../assets/rental logo.png" alt="Logo" style="max-width: 250px; margin-left: -15px;">
+          <div style=" margin-top:25px;">
+          
+            <a href="#"><img src="@/assets/Facebook-Logosu.png" alt="Facebook" style="max-width: 50px;"></a>
+            <a href="#"><img src="@/assets/ig.png" alt="Twitter" style="max-width: 40px;"></a>
+            <a href="#"><img src="@/assets/Telegram-logo.png" alt="Instagram" style="max-width: 50px;"></a>
         </div>
+        </div>
+        
+        <!-- Contact Us -->
+        <div class="col-md-4">
+            <h5 style="color: #49D06E; margin-top: 20px;">Contact Us</h5>
+            
+          <p>Phone: +1234567890</p>
+          <p>Email: example@gmail.com</p>
+        </div>
+        <!-- Quick Links -->
+        <div class="col-md-3">
+            <h5 style="color: #49D06E; margin-top: 20px;">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" style="color: white;">https://discord.com/</a></li>
+           
+          </ul>
+        </div>
+
+        <!-- Questions and Queries -->
+        <div class="col-md-3">
+            <h5 style="color: #49D06E; margin-top: 20px;">Questions and Queries</h5>
+          <form>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter your query" style="height: 70px;">
+            </div>
+            <button type="submit" class="btn btn-custom btn-block" style="background-color: #3BA859;color: white; margin-top: 10px; width: 100%;">Submit</button>
+          </form>
+        </div>
+        <hr style="border-top: 2px solid black; margin-top: 20px;">
+        
+    <!-- All Rights Reserved -->
+    <p>&copy; 2024 Car Rental. All rights reserved.</p>
       </div>
-    </footer>
-  </div>
+      
+    </div>
+    
+  </footer>
+
+</div>
 
     <!-- Modal -->
     <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="limitModalLabel" aria-hidden="true">

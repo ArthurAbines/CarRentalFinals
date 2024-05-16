@@ -10,7 +10,10 @@ import RegistrationForm from '../Views/LoginRegisterForm.vue';
 
 import BrowseCars from '../Views/BrowseCars.vue'; // Adjust the import path
 import Homepage from '../Views/Homepage.vue';
-
+import AboutUs from '../Pages/AboutUs.vue';
+import FAQ from '../Pages/FAQ.vue';
+import Milestones from '../Pages/Milestones.vue';
+import Services from '../Pages/Services.vue';
 //import for specific car page
 import NissanPatrol from '../ListofCars/NissanPatrol.vue';
 import BMWX7 from '../ListofCars/BMWX7.vue';
@@ -44,6 +47,29 @@ const routes = [
     name: 'Homepage',
     component: Homepage
   },
+  {
+    path: '/about',
+    name: 'about',
+    component: AboutUs
+  },
+  {
+    path: '/FAQ',
+    name: 'FAQ',
+    component: FAQ
+  },
+
+  {
+    path: '/Milestones',
+    name: 'Milestones',
+    component: Milestones
+  },
+
+  {
+    path: '/Services',
+    name: 'Services',
+    component: Services
+  },
+
 
  
 

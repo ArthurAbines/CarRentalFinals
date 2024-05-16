@@ -227,8 +227,8 @@ At the back, the SUV also comes with a redesigned tailgate that features a chrom
         <div class="col-md-3">
             <h5 style="color: #49D06E; margin-top: 20px;">Quick Links</h5>
           <ul class="list-unstyled">
-            <li><a href="#" style="color: white;">FAQ</a></li>
-            <li><a href="#" style="color: white;">Why Choose Us?</a></li>
+            <li><a href="#" style="color: white;">https://discord.com/</a></li>
+           
           </ul>
         </div>
 
@@ -247,8 +247,11 @@ At the back, the SUV also comes with a redesigned tailgate that features a chrom
     <!-- All Rights Reserved -->
     <p>&copy; 2024 Car Rental. All rights reserved.</p>
       </div>
+      
     </div>
+    
   </footer>
+
 </div>
 </template>
 

@@ -3,35 +3,37 @@
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #4D5167; padding:.5rem 0;">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="#" style="color: #fff; font-weight: bold; margin-left: -100px;">
-      <img src="@/assets/rental logo.png" alt="Logo" width="80" >
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0" style = "margin-left: -10px;">
-        <li class="nav-item">
-          <a class="nav-link custom-nav-link" href="#">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link custom-nav-link" href="#">Rentals</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link custom-nav-link" href="#">Booking</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link custom-nav-link" href="#">Forum</a>
-        </li>
-      </ul>
-      <form class="d-flex" style="max-width: 250px; margin-right: -90px; ">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border-radius: 0.25rem; ">
-        <button class="btn btn-success" type="submit" style="border-radius: 0.25rem;"><i class="fas fa-search"></i></button>
-      </form>
+    <div class="container">
+      <router-link class="navbar-brand d-flex align-items-center" to="/" style="color: #fff; font-weight: bold; margin-left: -100px;">
+        <img src="@/assets/rental logo.png" alt="Logo" width="90">
+      </router-link>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: -10px;">
+          <li class="nav-item">
+            <router-link class="nav-link custom-nav-link" to="/about">About Us</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link custom-nav-link" to="/Services">Services</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link custom-nav-link" to="/Milestones">Milestones</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link custom-nav-link" to="/FAQ">FAQ</router-link>
+          </li>
+       
+        </ul>
+        <form class="d-flex flex-grow-0 justify-content-end">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border-radius: 0.25rem;">
+          <button class="btn btn-success" type="submit" style="border-radius: 0.25rem;"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+
     <!-- Adjusted button color -->
     <div style="position: relative;">
       <img src="@/assets/22.jpg" alt="Image below navbar" style="width: 100%; height: 900px; ">
@@ -199,8 +201,8 @@
         <div class="col-md-3">
             <h5 style="color: #49D06E; margin-top: 20px;">Quick Links</h5>
           <ul class="list-unstyled">
-            <li><a href="#" style="color: white;">FAQ</a></li>
-            <li><a href="#" style="color: white;">Why Choose Us?</a></li>
+            <li><a href="#" style="color: white;">https://discord.com/</a></li>
+           
           </ul>
         </div>
 
@@ -294,19 +296,19 @@ export default {
 .custom-nav-link {
     font-weight: bold;
     color: white;
-   
     border: 1px solid white;
-    border-radius: 7px;
+    border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
-    padding:5px;
+    padding: 5px;
     margin-left: 5px;
-    width: 90px;
+    width: 100px;
     text-align: center;
 }
 
-  .custom-nav-link:hover {
-    background-color: white;
+.custom-nav-link:hover {
+    background-color: #E6E6E6; /* Slightly darken the background on hover */
     color: #4D5167;
-  }
+}
+
 
 </style>

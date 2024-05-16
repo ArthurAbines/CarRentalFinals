@@ -1,35 +1,38 @@
 <template>
 
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #4D5167;">
-          <div class="container">
-            <a class="navbar-brand" href="#">
-              <img :src="require('@/assets/rental logo.png')" alt="Logo" width="80" >
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="#" style="color: white;">Reservations</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#" style="color: white;">Client Profiles</a>
-                </li>
-              
-                <li class="nav-item">
-                  <a class="nav-link" href="#" style="color: white;">Approved Rentals</a>
-                </li>
-               
-              </ul>
-              <form class="d-flex ms-auto">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-success" type="submit"><i class="fas fa-search"></i></button>
-    </form>
-            </div>
-          </div>
-        </nav>
+
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #4D5167; padding:.5rem 0;">
+    <div class="container">
+      <router-link class="navbar-brand d-flex align-items-center" to="/" style="color: #fff; font-weight: bold; margin-left: -100px;">
+        <img src="@/assets/rental logo.png" alt="Logo" width="90">
+      </router-link>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: -10px;">
+          <li class="nav-item">
+            <router-link class="nav-link custom-nav-link" to="/about">Reservations</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link custom-nav-link" to="/Services">Client Profiles</router-link>
+          </li>
+         
+          <li class="nav-item">
+            <router-link class="nav-link custom-nav-link" to="/FAQ">Approved Rentals</router-link>
+          </li>
+       
+        </ul>
+        <form class="d-flex flex-grow-0 justify-content-end">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border-radius: 0.25rem;">
+          <button class="btn btn-success" type="submit" style="border-radius: 0.25rem;"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+
     
     
     
@@ -381,7 +384,22 @@ export default {
         border-color: #28a745;
         color: #fff;
     }
-    
+    .custom-nav-link {
+    font-weight: bold;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 5px;
+    margin-left: 5px;
+    width: 170px;
+    text-align: center;
+}
+
+.custom-nav-link:hover {
+    background-color: #E6E6E6; /* Slightly darken the background on hover */
+    color: #4D5167;
+}
     
     .container-search {
       display: flex;

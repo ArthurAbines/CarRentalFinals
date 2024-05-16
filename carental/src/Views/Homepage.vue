@@ -41,18 +41,51 @@
         <h2 style="text-shadow: 3px 3px 6px rgba(0, 0, 0, 4);">Discover Your Perfect Ride at Affordable Prices</h2>
 <p style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 4);">Explore our wide selection of featured vehicles and take advantage of our deals. Book now and hit the road!</p>
 
-        <router-link to="/browse">
-  <button class="btn btn-success" type="submit">Rent Now</button>
-</router-link>
+
+  
+  
+  <div>
+    <button class="btn btn-success" @click="showModal = true">Rent Now</button>
+
+    <!-- Modal -->
+    <div v-if="showModal" class="modal-overlay">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Terms and Conditions</h5>
+            <button type="button" class="btn-close" @click="showModal = false"></button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Car Rental Terms and Conditions</strong></p>
+            <p>Please read these terms and conditions carefully before using our car rental services.</p>
+            <ul>
+              <li>You must present a valid driver's license and credit card upon rental.</li>
+              <li>The rental period starts and ends at the times specified in the rental agreement.</li>
+              <li>You are responsible for any damage to the vehicle during the rental period.</li>
+              <li>Fuel policy: Return the car with the same fuel level as at the start of the rental.</li>
+              <li>Additional charges may apply for late returns, extra mileage, and additional drivers.</li>
+              <li>No smoking or pets allowed in the vehicle.</li>
+              <li>By agreeing to these terms, you consent to a pre-authorization charge on your credit card for the estimated rental amount.</li>
+            </ul>
+            <p>By clicking "Agree to All", you accept these terms and conditions  .</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" @click="showModal = false">Cancel</button>
+            <button type="button" class="btn btn-success" @click="agreeAndProceed">Agree to All</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+</div>
 
     <!--CARDS-->
     <div style="background-color: white; text-align: left; padding: 60px;">
       <h3>Top Pick Vehicle This Month</h3>
       <div class="row">
         <div class="col-md-3">
-          <a href="/nissan-patrol" style="text-decoration: none;">
+          <a href="" style="text-decoration: none;">
             <div class="card h-100" style="width: 20rem;">
               <img src="@/assets/NISSAN-PATROL.png" class="card-img-top" alt="Car 1" style="height: 200px; object-fit: cover;">
               <div class="card-footer" style="background-color: #D9D9D9; position: relative;">
@@ -63,7 +96,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a href="/FotonToano" style="text-decoration: none;">
+          <a href="" style="text-decoration: none;">
             <div class="card h-100" style="width: 20rem;">
               <img src="@/assets/foton toano.png" class="card-img-top" alt="Car 2" style="height: 200px; object-fit: cover;">
               <div class="card-footer" style="background-color: #D9D9D9; position: relative;">
@@ -74,7 +107,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a href="/MitsubishiMirageG4" style="text-decoration: none;">
+          <a href="" style="text-decoration: none;">
             <div class="card h-100" style="width: 20rem;">
               <img src="@/assets/mirage.png" class="card-img-top" alt="Car 3" style="height: 200px; object-fit: cover;">
               <div class="card-footer" style="background-color: #D9D9D9; position: relative;">
@@ -85,7 +118,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a href="/ChevroletSuburban" style="text-decoration: none;">
+          <a href="" style="text-decoration: none;">
             <div class="card h-100" style="width: 20rem;">
               <img src="@/assets/chevrolet.png" class="card-img-top" alt="Car 4" style="height: 200px; object-fit: cover;">
               <div class="card-footer" style="background-color: #D9D9D9; position: relative;">
@@ -231,10 +264,20 @@
 
 <script>
 export default {
-  name: 'NavbarComponent'
-}
+  name: 'NavbarComponent',
+  data() {
+    return {
+      showModal: false
+    };
+  },
+  methods: {
+    agreeAndProceed() {
+      this.showModal = false;
+      this.$router.push('/browse');
+    }
+  }
+};
 </script>
-
 <style scoped>
 /* Custom styles here */
 
@@ -309,6 +352,54 @@ export default {
     background-color: #E6E6E6; /* Slightly darken the background on hover */
     color: #4D5167;
 }
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  z-index: 1050;
+}
 
+.modal-dialog {
+  max-width: 600px;
+  width: 100%;
+  margin: 20px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
+.modal-content {
+  background: #4D5167;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-body {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+  border-top: 1px solid #dee2e6;
+}
+
+.modal-footer button + button {
+  margin-left: 10px; /* Add spacing between buttons */
+}
 </style>

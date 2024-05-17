@@ -51,22 +51,27 @@
 
 
  <!-- Card of the car -->
- <div class="card card-hover" style="position: relative; width: 700px; height: 480px; margin-left: -80px; background-color: #F0F0F0; border-color: #D9D9D9;">
-  <div class="card-body">
-    <img src="@/assets/NISSAN-PATROL.png" alt="Car" style="max-width: 100%; max-height: 100%; transition: transform 0.3s ease;">
-    <div class="mt-3" style="color: black;">
-      <p class="d-inline" style="float: left;">Pricing: 1000/day</p>
-      <button class="btn btn-custom float-end" style="background-color: #4D5167; color: white;" @click="showModal = true">Rent Now</button> <!-- Open modal on button click -->
+ <div class="card card-hover responsive-card" style="position: relative; width: 700px; height: 480px; margin-left: -80px; background-color: #F0F0F0; border-color: #D9D9D9;">
+  <div class="car-image-container">
+    <img src="@/assets/NISSAN-PATROL.png" alt="Car" class="car-image" style="max-width: 100%; max-height: 100%; transition: transform 0.3s ease;">
+  </div>
+  <!-- Pricing and Rent Now at the bottom -->
+  <div class="card-body" style="position: absolute; bottom: 0; width: 100%;">
+    <div class="mt-3" style="color: black; position: absolute; bottom: 10px; left: 10px;">
+      <p class="d-inline">Pricing: 1000/day</p>
+    </div>
+    <div class="mt-3" style="position: absolute; bottom: 10px; right: 10px;">
+      <button class="btn btn-custom float-end" style="background-color: #4D5167; color: white;" @click="showModal = true">Rent Now</button>
     </div>
   </div>
 
-  <!-- Modal -->
-  <div v-if="showModal" class="modal fade show d-block" tabindex="-1" style="background: rgba(0, 0, 0, 0.5); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+  <!-- Rental Dates Modal -->
+  <div v-if="showModal" class="modal-overlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Select Rental Dates</h5>
-          <button type="button" class="btn-close" @click="showModal = false" aria-label="Close"></button>
+          <button type="button" class="btn-close" @click="showModal = false"></button>
         </div>
         <div class="modal-body">
           <div class="mb-3">
@@ -82,16 +87,43 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" @click="showModal = false">Close</button>
-          <button type="button" class="btn btn-primary" @click="confirmRental">Confirm Rental</button>
+          <button type="button" class="btn btn-primary" @click="showTerms">Confirm Rental</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms and Conditions Modal -->
+  <div v-if="showTermsModal" class="modal-overlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Terms and Conditions</h5>
+          <button type="button" class="btn-close" @click="showTermsModal = false"></button>
+        </div>
+        <div class="modal-body" style="max-height: 300px; overflow-y: auto;">
+          <p><strong>Car Rental Terms and Conditions</strong></p>
+          <p>Please read these terms and conditions carefully before using our car rental services.</p>
+          <ul>
+            <li>You must present a valid driver's license and credit card upon rental.</li>
+            <li>The rental period starts and ends at the times specified in the rental agreement.</li>
+            <li>You are responsible for any damage to the vehicle during the rental period.</li>
+            <li>Fuel policy: Return the car with the same fuel level as at the start of the rental.</li>
+            <li>Additional charges may apply for late returns, extra mileage, and additional drivers.</li>
+            <li>No smoking or pets allowed in the vehicle.</li>
+            <li>By agreeing to these terms, you consent to a pre-authorization charge on your credit card for the estimated rental amount.</li>
+          </ul>
+          <p>By clicking "Agree to All", you accept these terms and conditions and agree to abide by them during your rental period.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" @click="showTermsModal = false">Cancel</button>
+          <button type="button" class="btn btn-primary" @click="confirmRental">Agree to All</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 </div>
-
-
-
         <!-- Nissan Patrol Overview -->
       <div class="col-lg-5 text-center mt-5"> <!-- Added margin top -->
         <h2>Nissan Patrol Overview</h2>
@@ -257,32 +289,28 @@ At the back, the SUV also comes with a redesigned tailgate that features a chrom
 
 
 <script>
-  export default {
-    data() {
-      return {
-        showModal: false
-      };
+export default {
+  name: 'NavbarComponent',
+  data() {
+    return {
+      showModal: false,
+      showTermsModal: false
+    };
+  },
+  methods: {
+    showTerms() {
+      this.showModal = false;
+      this.showTermsModal = true;
     },
-    methods: {
-      confirmRental() {
-        const startDate = document.getElementById("startDate").value;
-        const startTime = document.getElementById("startTime").value;
-        const returnDate = document.getElementById("returnDate").value;
-        const returnTime = document.getElementById("returnTime").value;
-
-        // You can now use startDate, startTime, returnDate, and returnTime to process the rental confirmation
-        // For example:
-        console.log("Start Date:", startDate);
-        console.log("Start Time:", startTime);
-        console.log("Return Date:", returnDate);
-        console.log("Return Time:", returnTime);
-
-        // Close the modal after confirming rental
-        this.showModal = false;
-      }
+      
+    closeTermsModal() {
+      this.showTermsModal = false;
     }
-  };
+  }
+};
 </script>
+
+
 
 
 
@@ -326,6 +354,79 @@ At the back, the SUV also comes with a redesigned tailgate that features a chrom
 .custom-nav-link:hover {
     background-color: #E6E6E6; /* Slightly darken the background on hover */
     color: #4D5167;
+}
+
+.card-hover {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.responsive-card {
+  width: 100%;
+  height: auto;
+  background-color: #F0F0F0;
+  border-color: #D9D9D9;
+}
+
+.car-image-container {
+  max-width: 100%;
+  max-height: 300px; /* Adjust height as needed */
+  overflow: hidden;
+}
+
+.car-image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1050;
+}
+
+.modal-dialog {
+  width: 90%;
+  max-width: 600px;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-body {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+  border-top: 1px solid #dee2e6;
+}
+
+.modal-footer button + button {
+  margin-left: 10px; /* Add spacing between buttons */
 }
 
 </style>

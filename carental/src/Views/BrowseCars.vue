@@ -362,18 +362,8 @@
           </div>
         </router-link>
         <!-- Card 4 -->
-        <router-link to="/FotonToano" class="card-link" style="text-decoration: none;">
-          <div class="card" style="width: 365px; height: 310px; margin-bottom: 20px;">
-            <img :src="require('@/assets/foton toano.png')" alt="Foton Toano Image" style="width: 100%; height: 200px;">
-            <div class="card-body" style="padding: 10px;">
-              <h5 class="card-title" style="font-weight: bold;">Foton Toano</h5>
-              <div class="image-logo" style="margin-left: 265px;">
-                <img :src="require('@/assets/Foton-logo.png')" alt="Foton Logo" style="width: 60px; height: 50px;">
-              </div>
-            </div>
-          </div>
-        </router-link>
-        <!-- Card 5 -->
+    
+      
        
       </div>
     </div>

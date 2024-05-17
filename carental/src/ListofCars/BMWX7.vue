@@ -36,61 +36,94 @@
 
   <!-- Name of Car -->
   <div class="container mt-4">
-    <div class="row align-items-center ">
-     <div class="col">
-  <h1 class="text-center" style="color: #000; font-weight: bold;">BMX W7<img src="@/assets/BMW.svg.png" alt="Logo" width="50"></h1>
-  </div>
+  <div class="row align-items-center">
+    <div class="col">
+      <h1 class="text-center" style="color: #000; font-weight: bold;">BMX W7<img src="@/assets/BMW.svg.png" alt="Logo" width="50"></h1>
     </div>
   </div>
+</div>
 
-   
-
-  <div class="container mt-4">
-    <div class="row justify-content-center">
-      <div class="col-lg-6">
-
- <!-- Card of the car -->
- <div class="card card-hover" style="position: relative; width: 700px; height: 480px; margin-left: -80px; background-color: #F0F0F0; border-color: #D9D9D9;">
-  <div class="card-body">
-    <img src="@/assets/bmwx7.png" alt="Car" style="max-width: 100%; max-height: 100%;">
-    <div class="mt-3" style="color: black; position: absolute; bottom: 10px; left: 10px;">
-      <p class="d-inline" style="margin-right: 10px;">Pricing: 3000/day</p> <!-- Aligned price to the left -->
-    </div>
-    <div class="mt-3" style="position: absolute; bottom: 10px; right: 10px;">
-      <button class="btn btn-custom float-end" style="background-color: #4D5167; color: white;" @click="showModal = true">Rent Now</button> <!-- Open modal on button click -->
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <div v-if="showModal" class="modal fade show d-block" tabindex="-1" style="background: rgba(0, 0, 0, 0.5); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Select Rental Dates</h5>
-          <button type="button" class="btn-close" @click="showModal = false" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="mb-3">
-            <label for="startDate">Start Date:</label>
-            <input type="date" class="form-control" id="startDate">
-            <input type="time" class="form-control mt-2" id="startTime">
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <!-- Card of the car -->
+      <div class="card card-hover" style="position: relative; width: 700px; height: 580px; margin-left: -80px; background-color: #F0F0F0; border-color: #D9D9D9;">
+        <img src="@/assets/bmwx7.png" alt="Car" style="max-width: 100%; max-height: 100%;">
+        <div class="card-body" style="position: absolute; bottom: 0; width: 100%;">
+          <div class="mt-3" style="color: black; position: absolute; bottom: 10px; left: 10px;">
+            <p class="d-inline">Pricing: 3000/day</p>
           </div>
-          <div class="mb-3">
-            <label for="returnDate">Return Date:</label>
-            <input type="date" class="form-control" id="returnDate">
-            <input type="time" class="form-control mt-2" id="returnTime">
+          <div class="mt-3" style="position: absolute; bottom: 10px; right: 10px;">
+            <button class="btn btn-custom float-end" style="background-color: #4D5167; color: white;" @click="showModal = true">Rent Now</button>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" @click="showModal = false">Close</button>
-          <button type="button" class="btn btn-primary" @click="confirmRental">Confirm Rental</button>
+
+        <!-- Modal -->
+        <div v-if="showModal" class="modal fade show d-block" tabindex="-1" style="background: rgba(0, 0, 0, 0.5); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Select Rental Dates</h5>
+                <button type="button" class="btn-close" @click="showModal = false" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label for="startDate">Start Date:</label>
+                  <input type="date" class="form-control" id="startDate">
+                  <input type="time" class="form-control mt-2" id="startTime">
+                </div>
+                <div class="mb-3">
+                  <label for="returnDate">Return Date:</label>
+                  <input type="date" class="form-control" id="returnDate">
+                  <input type="time" class="form-control mt-2" id="returnTime">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @click="showModal = false">Close</button>
+                <button type="button" class="btn btn-primary" @click="showTermsModal = true">Confirm Rental</button>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Terms and Conditions Modal -->
+        <div v-if="showTermsModal" class="modal fade show d-block" tabindex="-1" style="background: rgba(0, 0, 0, 0.5); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Terms and Conditions</h5>
+                <button type="button" class="btn-close" @click="showTermsModal = false" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" style="max-height: 300px; overflow-y: auto;">
+                <p><strong>Car Rental Terms and Conditions</strong></p>
+                <p>Please read these terms and conditions carefully before using our car rental services.</p>
+                <ul>
+                  <li>You must present a valid driver's license and credit card upon rental.</li>
+                  <li>The rental period starts and ends at the times specified in the rental agreement.</li>
+                  <li>You are responsible for any damage to the vehicle during the rental period.</li>
+                  <li>Fuel policy: Return the car with the same fuel level as at the start of the rental.</li>
+                  <li>Additional charges may apply for late returns, extra mileage, and additional drivers.</li>
+                  <li>No smoking or pets allowed in the vehicle.</li>
+                  <li>By agreeing to these terms, you consent to a pre-authorization charge on your credit card for the estimated rental amount.</li>
+                </ul>
+                <p>By clicking "Agree to All", you accept these terms and conditions and agree to abide by them during your rental period.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @click="showTermsModal = false">Cancel</button>
+                <button type="button" class="btn btn-primary" @click="confirmRental">Agree to All</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</div>
+ 
 
-</div>
+
+
+
+
       <!--Overview -->
         <div class="col-lg-5 text-center mt-5">
         <h2 style="text-decoration: underline;">BMW X7 Overview</h2>
@@ -261,31 +294,26 @@
 
 <script>
 export default {
+  name: 'NavbarComponent',
   data() {
     return {
-      showModal: false
+      showModal: false,
+      showTermsModal: false
     };
   },
   methods: {
-    confirmRental() {
-      const startDate = document.getElementById("startDate").value;
-      const startTime = document.getElementById("startTime").value;
-      const returnDate = document.getElementById("returnDate").value;
-      const returnTime = document.getElementById("returnTime").value;
-
-      // You can now use startDate, startTime, returnDate, and returnTime to process the rental confirmation
-      // For example:
-      console.log("Start Date:", startDate);
-      console.log("Start Time:", startTime);
-      console.log("Return Date:", returnDate);
-      console.log("Return Time:", returnTime);
-
-      // Close the modal after confirming rental
+    showTerms() {
       this.showModal = false;
+      this.showTermsModal = true;
+    },
+      
+    closeTermsModal() {
+      this.showTermsModal = false;
     }
   }
 };
 </script>
+
 
 
 
@@ -323,6 +351,53 @@ export default {
 .custom-nav-link:hover {
     background-color: #E6E6E6; /* Slightly darken the background on hover */
     color: #4D5167;
-}hadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
   }
+
+  .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1050;
+}
+
+.modal-dialog {
+  width: 90%;
+  max-width: 600px;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-body {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+  border-top: 1px solid #dee2e6;
+}
+
+.modal-footer button + button {
+  margin-left: 10px; /* Add spacing between buttons */
+}
 </style>
